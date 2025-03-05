@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import IntroPage from "./Intro";
 import Gameplay from "./Gameplay";
+require('dotenv').config();
 
 function Footer() {
   return <footer>&copy; Andy Ryan 2025</footer>;
