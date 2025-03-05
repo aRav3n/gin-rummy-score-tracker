@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Gameplay({
   setWinningPlayer,
@@ -24,23 +24,24 @@ export default function Gameplay({
     return;
   }
 
+  useEffect(() => {
+    checkForWinner();
+  }, [playerOne.score, playerTwo.score]);
+
   function PlayerCard({ player, setPlayer }) {
     const [gin, setGin] = useState(false);
 
     function GinButton() {
-      if (!gin) {
-        checkForWinner();
-        return (
-          <button
-            type="button"
-            onClick={() => {
-              setGin(true);
-            }}
-          >
-            Gin!
-          </button>
-        );
-      }
+      return (
+        <button
+          type="button"
+          onClick={() => {
+            setGin(true);
+          }}
+        >
+          Gin!
+        </button>
+      );
     }
 
     function GinCard() {
@@ -54,49 +55,43 @@ export default function Gameplay({
         };
         setPlayer(newPlayerObject);
         setGin(false);
-        checkForWinner();
       }
 
-      if (gin) {
-        return (
-          <div>
-            <label htmlFor="additionalPoints">
-              Points in addition to gin:
-              <input
-                type="number"
-                name="points"
-                id="points"
-                value={additionalPoints}
-                onChange={(e) => setAdditionalPoints(e.target.value)}
-              />
-            </label>
-            <button type="button" onClick={handleClick}>
-              Collect my points!
-            </button>
-          </div>
-        );
-      }
+      return (
+        <div>
+          <label htmlFor="additionalPoints">
+            Points in addition to gin:
+            <input
+              type="number"
+              name="points"
+              id="points"
+              value={additionalPoints}
+              onChange={(e) => setAdditionalPoints(e.target.value)}
+            />
+          </label>
+          <button type="button" onClick={handleClick}>
+            Collect my points!
+          </button>
+        </div>
+      );
     }
 
     return (
       <div>
         <span>Player: {player.name}</span>
         <span>Score: {player.score}</span>
-        <GinCard />
-        <GinButton />
+        {gin ? <GinCard /> : <GinButton />}
       </div>
     );
   }
 
-  if (readyToPlay) {
-    return (
-      <>
-        <div id="players">
-          <span>Playing to: {maxScore} </span>
-          <PlayerCard player={playerOne} setPlayer={setPlayerOne}></PlayerCard>
-          <PlayerCard player={playerTwo} setPlayer={setPlayerTwo}></PlayerCard>
-        </div>
-      </>
-    );
-  }
+  return (
+    <>
+      <div id="players">
+        <span>Playing to: {maxScore} </span>
+        <PlayerCard player={playerOne} setPlayer={setPlayerOne}></PlayerCard>
+        <PlayerCard player={playerTwo} setPlayer={setPlayerTwo}></PlayerCard>
+      </div>
+    </>
+  );
 }

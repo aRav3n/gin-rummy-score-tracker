@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./App.css";
 import IntroPage from "./Intro";
 import Gameplay from "./Gameplay";
-require('dotenv').config();
 
 function Footer() {
   return <footer>&copy; Andy Ryan 2025</footer>;
@@ -17,27 +16,29 @@ function App() {
 
   return (
     <>
-      <Gameplay
-        setWinningPlayer={setWinningPlayer}
-        readyToPlay={readyToPlay}
-        setReadyToPlay={setReadyToPlay}
-        maxScore={maxScore}
-        playerOne={playerOne}
-        setPlayerOne={setPlayerOne}
-        playerTwo={playerTwo}
-        setPlayerTwo={setPlayerTwo}
-      ></Gameplay>
-      <IntroPage
-        winningPlayer={winningPlayer}
-        readyToPlay={readyToPlay}
-        setReadyToPlay={setReadyToPlay}
-        maxScore={maxScore}
-        setMaxScore={setMaxScore}
-        playerOne={playerOne}
-        setPlayerOne={setPlayerOne}
-        playerTwo={playerTwo}
-        setPlayerTwo={setPlayerTwo}
-      ></IntroPage>
+      {readyToPlay ? (
+        <Gameplay
+          setWinningPlayer={setWinningPlayer}
+          setReadyToPlay={setReadyToPlay}
+          maxScore={maxScore}
+          playerOne={playerOne}
+          setPlayerOne={setPlayerOne}
+          playerTwo={playerTwo}
+          setPlayerTwo={setPlayerTwo}
+        ></Gameplay>
+      ) : (
+        <IntroPage
+          winningPlayer={winningPlayer}
+          setReadyToPlay={setReadyToPlay}
+          maxScore={maxScore}
+          setMaxScore={setMaxScore}
+          playerOne={playerOne}
+          setPlayerOne={setPlayerOne}
+          playerTwo={playerTwo}
+          setPlayerTwo={setPlayerTwo}
+        ></IntroPage>
+      )}
+
       <Footer></Footer>
     </>
   );
