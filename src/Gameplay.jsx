@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 export default function Gameplay({
   setWinningPlayer,
-  readyToPlay,
   setReadyToPlay,
   maxScore,
   playerOne,
@@ -10,7 +9,6 @@ export default function Gameplay({
   playerTwo,
   setPlayerTwo,
 }) {
-  const [additionalPoints, setAdditionalPoints] = useState(0);
   const pointsForGin = 25;
 
   function checkForWinner() {
@@ -45,6 +43,8 @@ export default function Gameplay({
     }
 
     function GinCard() {
+      const [additionalPoints, setAdditionalPoints] = useState(0);
+
       function handleClick() {
         const pointsToAdd = pointsForGin + additionalPoints;
         const newScore = player.score + pointsToAdd;
@@ -66,7 +66,7 @@ export default function Gameplay({
               name="points"
               id="points"
               value={additionalPoints}
-              onChange={(e) => setAdditionalPoints(e.target.value)}
+              onChange={(e) => setAdditionalPoints(Number(e.target.value))}
             />
           </label>
           <button type="button" onClick={handleClick}>
@@ -78,8 +78,12 @@ export default function Gameplay({
 
     return (
       <div>
-        <span>Player: <strong>{player.name}</strong></span>
-        <span>Score: <strong>{player.score}</strong></span>
+        <span>
+          Player: <strong>{player.name}</strong>
+        </span>
+        <span>
+          Score: <strong>{player.score}</strong>
+        </span>
         {gin ? <GinCard /> : <GinButton />}
       </div>
     );
