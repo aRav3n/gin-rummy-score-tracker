@@ -78,8 +78,8 @@ export default function Gameplay({
 
     return (
       <div>
-        <span>Player: {player.name}</span>
-        <span>Score: {player.score}</span>
+        <span>Player: <strong>{player.name}</strong></span>
+        <span>Score: <strong>{player.score}</strong></span>
         {gin ? <GinCard /> : <GinButton />}
       </div>
     );
@@ -88,7 +88,9 @@ export default function Gameplay({
   return (
     <>
       <div id="players">
-        <span>Playing to: {maxScore} </span>
+        <span>
+          <strong>Playing to: {maxScore}</strong>
+        </span>
         <PlayerCard player={playerOne} setPlayer={setPlayerOne}></PlayerCard>
         <PlayerCard player={playerTwo} setPlayer={setPlayerTwo}></PlayerCard>
       </div>
