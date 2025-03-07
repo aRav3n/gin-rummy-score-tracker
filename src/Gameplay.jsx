@@ -11,13 +11,22 @@ export default function Gameplay({
 }) {
   const pointsForGin = 25;
 
+  function resetScores() {
+    const newPlayerOne = { ...playerOne, score: 0 };
+    const newPlayerTwo = { ...playerTwo, score: 0 };
+    setPlayerOne(newPlayerOne);
+    setPlayerTwo(newPlayerTwo);
+  }
+
   function checkForWinner() {
     if (playerOne.score >= maxScore) {
       setWinningPlayer(playerOne.name);
       setReadyToPlay(false);
+      resetScores();
     } else if (playerTwo.score >= maxScore) {
       setWinningPlayer(playerTwo.name);
       setReadyToPlay(false);
+      resetScores();
     }
     return;
   }
