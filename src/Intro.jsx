@@ -59,7 +59,7 @@ export default function IntroPage({
         <label htmlFor="maxScore">
           Playing To:
           <input
-            type="number"
+            type="tel"
             name="maxScore"
             id="maxScore"
             value={maxScore}

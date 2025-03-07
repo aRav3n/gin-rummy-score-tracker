@@ -62,7 +62,7 @@ export default function Gameplay({
           <label htmlFor="additionalPoints">
             Points in addition to gin:
             <input
-              type="number"
+              type="tel"
               name="points"
               id="points"
               value={additionalPoints}
