@@ -5,4 +5,5 @@ I built this to fulfill a need for easier score tracking than writing on a napki
 - [Web app](https://gin-rummy-score-tracker.pages.dev/)
 
 ## Future improvement ideas
-Convert to a React Native app for offline use
+- Convert to a React Native app for offline use
+- Make a dedicated winner page
