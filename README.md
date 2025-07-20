@@ -9,4 +9,5 @@ I built this to fulfill a need for easier score tracking than writing on a napki
 ![Gameplay on a smartphone](./public/gameplay_screenshot.png)
 
 ## Future improvement ideas
-Convert to a React Native app for offline use
+- Convert to a React Native app for offline use
+- Make a dedicated winner page
