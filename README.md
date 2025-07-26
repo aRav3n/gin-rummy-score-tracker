@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Description](#description)
+- [Installation Instructions](#installation-instructions)
 - [Usage and Screenshots](#usage-and-screenshots)
 - [Technologies Used](#technologies-used)
 - [Dependencies and Credits](#dependencies-and-credits)
@@ -10,7 +11,24 @@
 
 ## Description
 
-I built this to fulfill a need for easier score tracking than writing on a napkin or using a spreadsheet
+I built this to fulfill a need for easier score tracking than writing on a napkin or using a spreadsheet.
+
+## Installation Instructions
+
+1. Clone or fork this repo
+2. cd into the project root directory (where the README.md file is located)
+3. Run the following in your terminal
+    - ``` bash
+      npm init -y
+      npm install react react-dom
+      npm install @eslint/js @types/react @types/react-dom --save-dev
+      npm install @vitejs/plugin-react eslint eslint-config-prettier --save-dev
+      npm install eslint-plugin-react-hooks eslint-plugin-react-refresh --save-dev
+      npm install globals vite --save-dev
+      ```
+1. `npm run dev`
+   - `^` + `c` will end the process 
+1. Navigate to the url displayed in the terminal: `➜  Local:   http://localhost:5173/` 
 
 ## Usage and Screenshots
 
